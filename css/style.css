@@ -98,6 +98,101 @@ header nav a.active {
   margin-right: 1.25em;
 }
 
+/* ---- ---- Title and controllers container ---- ---- */
+
+.title-controlls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.title-controlls-container h3 {
+  color: white;
+  font-size: 30px;
+}
+
+.title-controlls-container .indicators button {
+  background: white;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-left: 2px;
+}
+
+.title-controlls-container .indicators button:hover,
+.title-controlls-container .indicators button.active {
+  background-color: var(--primary-color);
+}
+
+/* ---- ---- Main container ---- ---- */
+
+.recommended-movies {
+  margin-bottom: 70px;
+}
+
+.recommended-movies .main-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.recommended-movies .main-container .arrow-left,
+.recommended-movies .main-container .arrow-right {
+  position: absolute;
+  border: none;
+  background-color: rgba(0, 0, 0, .25);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  transition: .2s ease all;
+}
+
+.recommended-movies .main-container .arrow-left:hover,
+.recommended-movies .main-container .arrow-right:hover {
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.recommended-movies .main-container .arrow-left {
+  left: 0;
+}
+
+.recommended-movies .main-container .arrow-right {
+  right: 0;
+}
+
+/* ---- ---- Main container ---- ---- */
+
+.recommended-movies .carousel-container {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.recommended-movies .carousel-container .carousel {
+  display: flex;
+}
+
+.recommended-movies .carousel-container .carousel .movie {
+  min-width: 20%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
+  transition: .3s ease all .1s;
+}
+.recommended-movies .carousel-container .carousel .movie:hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.recommended-movies .carousel-container .carousel .movie img {
+  width: 100%;
+}
+
 /* ---- ---- Media queries ---- ---- */
 
 @media screen and (max-width: 800px) {
@@ -115,5 +210,21 @@ header nav a.active {
 
   .main-movie .description {
     max-width: 100%;
+  }
+
+  .recommended-movies .carousel-container {
+    overflow: visible;
+  }
+
+  .recommended-movies .carousel-container .carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .recommended-movies .indicators,
+  .recommended-movies .arrow-left,
+  .recommended-movies .arrow-right {
+    display: none;
   }
 }
